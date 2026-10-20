@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **el 021 vuelve a hacer la revisión diaria completa.** El nodo `Compare` declaraba dos veces `bcKeys` desde el 15 de octubre y la pasada completa fallaba con SyntaxError, sin escribir chequeos ni autocorregir la planificación. Rama `fix/021-bckeys-duplicado`.
+
 ### Changed
 
 - **las horas de la tarea se proponen al decir merge.** `docs/shared` en `c96dec6`. Rama `chore/pin-docs-c96dec6`.
