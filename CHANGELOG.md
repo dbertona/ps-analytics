@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **el permiso abre un diálogo en el Mac.** `docs/shared` en `20d0fa0`. Rama `chore/pin-docs-20d0fa0`.
+
 - **las horas de la tarea se proponen al decir merge.** `docs/shared` en `c96dec6`. Rama `chore/pin-docs-c96dec6`.
 
 - **la guía distingue el enlace vivo del pin de las reglas.** `docs/shared` en `d187278`. Rama `chore/pin-docs-d187278`.
