@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **el 021 vuelve a hacer la revisión diaria completa.** El nodo `Compare` declaraba dos veces `bcKeys` desde el 15 de octubre y la pasada completa fallaba con SyntaxError, sin escribir chequeos ni autocorregir la planificación. Rama `fix/021-bckeys-duplicado`.
+
 ### Changed
 
 - **el permiso abre un diálogo en el Mac.** `docs/shared` en `20d0fa0`. Rama `chore/pin-docs-20d0fa0`.
