@@ -42,8 +42,10 @@ Cuando cambie la lógica de negocio PBI/Apps:
 ## Contenido vigente (resumen)
 
 - `v_se_lineas_movimientos` suma `bc_job_ledger_entry_line` en los meses de `bc_meses_cerrados`. La certificación abierta sigue en `bc_job_ledger_entry_month`.
-- `v_se_lineas_planificacion` → excluye meses con Ingresos reales en ledger;
-  `invoice`/`facturado` = 0 si `line_type = Budget` (ventas solo Billable).
+- `v_se_lineas_planificacion` → el mes abierto conserva estas líneas aunque haya
+  ingresos reales (el coste va aquí; la venta planificada, en el expediente).
+  Sigue excluyendo `bc_meses_cerrados`. `invoice`/`facturado` = 0 si
+  `line_type = Budget` (ventas solo Billable).
 - Incluye fase 2: expedientes, meses cerrados, objetivos, histórico, KPI cards.
 - `v_se_coste` → capa dedicada a Coste P/R (`SUM(coste)`); **no** sustituye `v_se_facturacion`
   (facturación canónica). Incluye `fuente` y `coste_raw` para diagnóstico vs PBI.
