@@ -143,10 +143,9 @@ CREATE OR REPLACE VIEW public.v_se_lineas_planificacion AS
             )
             AND NOT EXISTS (SELECT 1 FROM bc_meses_cerrados c
                   WHERE c.company_name = p.company_name AND c.job_no::text = p.job_no::text AND c.year = p.year AND c.month = p.month)
-            AND NOT EXISTS (SELECT 1 FROM bc_job_ledger_entry_month m
-                  WHERE m.company_name = p.company_name AND m.job_no::text = p.job_no::text
-                  AND m.year = p.year AND m.month = p.month
-                  AND m.concepto_analitico_descripcion = 'Ingresos')
+            -- La venta planificada de un proyecto con expediente no está en estas líneas:
+            -- aquí va el coste. Un mes con ingresos reales no las oculta.
+            -- El mes cerrado sigue excluido: el coste real queda en los movimientos.
         )
  SELECT s.empresa,
     s.job,
@@ -188,7 +187,7 @@ CREATE OR REPLACE VIEW public.v_se_lineas_planificacion AS
     (s.empresa || ':'::text) || s.year::text AS empresa_ano,
     (s.empresa || ':'::text) || COALESCE(s.nr, ''::character varying)::text AS empresa_recurso
    FROM src s;
-COMMENT ON VIEW public.v_se_lineas_planificacion IS 'PBI Lineas Planificacion: híbrido — pasados: MAX(budget_date_month)<=month (fallback Structure); futuros: todas las versiones. Excluye bc_meses_cerrados y meses con Ingresos reales. facturado: line_type Budget=0 (ventas solo Billable; 2026-08-10). Open/Planning.';
+COMMENT ON VIEW public.v_se_lineas_planificacion IS 'Lineas Planificacion: híbrido — pasados: MAX(budget_date_month)<=month (fallback Structure); futuros: todas las versiones. Excluye bc_meses_cerrados. Un mes abierto con Ingresos reales mantiene el coste de estas líneas. facturado: line_type Budget=0 (ventas solo Billable; 2026-08-10). Open/Planning.';
 
 -- Suma del mes desde cada apunte. La vista del seguimiento lee esta.
 -- Invoice de la línea va en signo BC; aquí se niega para igualar el mes que había.
