@@ -4,6 +4,8 @@
 
 ### Changed
 
+- **las horas de la tarea se proponen al decir merge.** `docs/shared` en `c96dec6`. Rama `chore/pin-docs-c96dec6`.
+
 - **la guía distingue el enlace vivo del pin de las reglas.** `docs/shared` en `d187278`. Rama `chore/pin-docs-d187278`.
 
 - **el agente propone horas solo cuando la tarea está terminada.** `docs/shared` en `1c0355c`. Rama `chore/pin-docs-1c0355c`.
