@@ -4,6 +4,8 @@
 
 ### Fixed
 
+- **021 no avisa si la foto del Seguimiento va un refresco por detrás de una edición.** `bi_mv_resumen_fact` y `bi_mv_resumen_coste` quedan en aviso cuando el desfase supera 0,5 €, hay un cambio de sync de esa empresa en los últimos 3 minutos y el pase anterior estaba en ok. Si el desfase sigue, es fallo y sale el correo. Sin cambios recientes, el fallo es inmediato. Rama `fix/021-foto-aviso-en-edicion`.
+
 - **el 021 vuelve a hacer la revisión diaria completa.** El nodo `Compare` declaraba dos veces `bcKeys` desde el 15 de octubre y la pasada completa fallaba con SyntaxError, sin escribir chequeos ni autocorregir la planificación. Rama `fix/021-bckeys-duplicado`.
 
 ### Changed
