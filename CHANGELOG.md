@@ -10,6 +10,8 @@
 
 ### Changed
 
+- **guía del 021:** la foto en edición queda en aviso. `docs/shared` en `da6bf42`.
+
 - **el permiso abre un diálogo en el Mac.** `docs/shared` en `20d0fa0`. Rama `chore/pin-docs-20d0fa0`.
 
 - **las horas de la tarea se proponen al decir merge.** `docs/shared` en `c96dec6`. Rama `chore/pin-docs-c96dec6`.
